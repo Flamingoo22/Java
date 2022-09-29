@@ -1,0 +1,12 @@
+Explicitly Casting: casting down
+
+public class Casting {
+    public statc void main (String[] args) {
+        int i = 130;
+        byte b = (byte) i;
+            // when casting bigger type into smaller type, and the values is greater than smaller type's capacity, it will not return the same value;
+        System.out.println(b); 
+    }
+}
+
+Implicit Casting: casting up

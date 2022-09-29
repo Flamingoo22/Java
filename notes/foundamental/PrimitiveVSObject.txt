@@ -1,0 +1,6 @@
+Performance: Object types are an instance of a class. They usually hold data and methods. 
+                Therefore, their memory capacity is much bigger than their primitive counterpart.
+
+null values: Primitive data types can only hold data. 
+                However, Object types are pointers to where the data is stored. 
+                This means that this pointer can point to nothing (null), while primitive types cannot.

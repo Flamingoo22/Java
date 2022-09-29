@@ -1,0 +1,104 @@
+Encapsulation
+Encapsulation is the idea that we can group code together into objects that will behave in an expected way. Encapsulation in Java involves controlling access to properties or methods with access modifiers and limiting control to the inner scope where necessary. 
+
+
+public class CoffeeMaker {
+    protected int maxVolumeOz;
+    protected String milk;
+    
+    public CoffeeMaker(int maxVolumeOz) {
+        this.maxVolumeOz = maxVolumeOz;
+    }
+                
+    public int getMaxVolumeOz() {
+        return this.maxVolumeOz;
+    
+    public int getMaxServings() {
+        return this.maxVolumeOz / 8;
+    }
+    
+    public void brew(String beans) {
+    	System.out.println("Brewing coffee");
+    }
+}
+
+
+
+
+Inheritance
+Inheritance is the idea that we pass along attributes and methods from one class into a "sub-class" or child class, and not have to re-write the code to make it work. Child classes can be more specific versions of their Parent class. Using the key word "super" will call methods
+
+
+class CappuccinoMaker extends CoffeeMaker {
+    
+    public CappuccinoMaker(int maxVolumeOz) {
+        super(maxVolumeOz);
+        this.milk = "whole";
+    }
+    
+    public void makeCappuccino(String beans) {
+        super.brew(beans);
+        System.out.println("Smooth.");
+    }
+}
+
+
+Polymorphism
+Polymorphism means "many forms", and the idea in OOP is that a Child class can have a different version of a method than the Parent class. 
+
+class CappuccinoMaker extends CoffeeMaker {
+ 
+    public CappuccinoMaker() {
+        this.maxVolumeOz = 16;
+        this.milk = "whole";
+    }
+                  
+    public void brew(="operator from-rainbow">="entity class from-rainbow">String beans) {
+	super.brew(beans);
+        System.out.println("Frothy!!!");
+    }
+                  
+    public void clean(){
+        System.out.println("Cleaning the froth!");
+    }
+}
+
+
+Abstraction
+Abstraction is an extension of Encapsulation, and we can hide attributes or methods that a Barista doesn't need to know about
+
+
+class Barista {
+    
+    private String name;
+    private CoffeeMaker coffeeMaker;
+    
+    public Barista(String name) {
+        this.name = name;
+        this.coffeeMaker = new CoffeeMaker(40);
+    }
+    
+    public void makeCoffee() {
+        this.coffeeMaker.brew();
+    }
+}
+
+
+
+
+
+Superclass is the parent class
+subclass is the child class
+
+public is share across;
+protected is only shared with subclass;
+private can only be provoke within the class;
+
+class childClass extends parentClass{
+
+}
+
+Overriding Method
+You can change or extend the method of a superclass by just writing a method that has the same method signature and return type as the parent method. Then the new method will be called on the subclass whenever it is invoked.
+
+What if we want to give them some rest and just extend our parent class? Then we can use the super keyword to invoke the superclass method in our own.

@@ -1,0 +1,21 @@
+modifiers: private is the access modifier that defines the access type of the method. The above method will only be visible to the object itself and cannot be called from other classes. There are also other modifiers, such as static which we will explore later. The access modifiers are:
+
+    private: Only the class in which it is declared can see and access the method. This is the most restrictive access level.
+
+    protected: Protected access gives subclasses a chance to use the method, while preventing a nonrelated class from trying to use it.
+
+    public: Every class everywhere has access to the method.
+return type: String is a return type that is used to declare that a method returns a String type. Other return types are the data type of whatever your method returns, like int, String, double, boolean, or void. In Java, you must specify what data type your method will return; otherwise, it will result in an error.
+
+method name: createGreeting is the method name. The convention for choosing a name for your method depends on what return type the method has. If the method returns a boolean, the convention is to ask a question in the name; that way, the names are read like they would have a question mark at the end. Is the collection empty? Is the user logged in?  Does this element have items? We use lowerCamelCase for method names. For non-boolean methods we will use either verbs or get and set for property values, e.g.:getValue(); setValue(); greet(); addToList(); createGreeting();
+isEmpty();
+isLoggedIn();
+hasItems();copy
+
+parameter list - This is common to all programming languages. Whatever is enclosed in the opening and closing parenthesis are called parameters. In the createGreeting method, notice that we specifically declare a datatype again for our toBeGreeted variable. Declaring the datatype is required when there are parameters.
+
+method body - The line return "Greetings " + toBeGreeted; in the createGreeting is part of the method body. The method body defines the instructions that are to be executed when the method is called. It is all the code between the curly braces, { }.
+
+method type:  static defines the method to be a class method that is invoked without reference to an object.
+
+static modifier: This is the most common modifier you will see that is not an access modifier. This modifier defines the method as a class method, which means it can be invoked without reference to a particular object. Static methods can be called without creating an object. Have you wondered why we write the static keyword when defining main? It is because program execution begins from main and no object has been created yet. Class methods are useful for creating constants and class fields that need to be used throughout a program. One rule-of-thumb: ask yourself "does it make sense to call this method, even if an object has not been constructed yet?" If so, that method should be static. One good example is the Math class. You do not need to instantiate it; you just have to call its methods. For example:

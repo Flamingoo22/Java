@@ -1,0 +1,3 @@
+public return_type functionName(parameyers){
+    return "something matching the return type"
+}

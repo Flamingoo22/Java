@@ -1,0 +1,33 @@
+There are 3 types of interface methods: default, static and abstract.
+
+default methods allow developers to create default methods that do not need implementation.
+Static methods are interface member methods. They are implemented on the interface level and are called on the interface, not the class. Therefore, you cannot override static interface methods. You can only call them directly on the interface that they were declared.
+Abstract methods are methods that are declared without implementation. We saw an example of that in the examples above.
+
+
+public interface ACPowerable {
+    Integer voltage = 120;
+    Integer frequency = 60;
+    
+    abstract void unPlug();
+    abstract boolean checkPluggedIn();
+    
+    public default void hasPower() {
+        String message = "The device is ";
+        if(!checkPluggedIn()) {
+            message += "not ";
+        }
+        System.out.println(message + "plugged in.");
+    }
+    
+}
+
+
+Abstract is the implicit method type; without declaration of either Static or default the method will be Abstract
+public is the implicit access modifier.
+An interface can contain constant declarations as well (i.e. static final class variables). All constant values defined in an interface are implicitly public, static, and final. Therefore, you are free to omit these modifiers.
+
+
+
+
+classes needs to be created at the same parent folder as interface folder to have access

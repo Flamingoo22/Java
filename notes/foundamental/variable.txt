@@ -1,0 +1,8 @@
+Integer: The Integer class wraps a value of the primitive type int into an object.
+Long: The Long class wraps a value of the primitive type long into an object.
+Boolean: The Boolean class wraps a value of the primitive type boolean into an object.
+Double: The Double class wraps a value of the primitive type double into an object.
+Character: The Character class wraps a value of the primitive type char into an object.
+
+String: Represents a sequence of characters, much like a string in other languages.
+BigInteger: Represents an integer that can be any size at all.

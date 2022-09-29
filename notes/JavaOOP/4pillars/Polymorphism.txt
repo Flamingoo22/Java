@@ -1,0 +1,19 @@
+Polymorphism
+Polymorphism means "many forms", and the idea in OOP is that a Child class can have a different version of a method than the Parent class. 
+
+class CappuccinoMaker extends CoffeeMaker {
+ 
+    public CappuccinoMaker() {
+        this.maxVolumeOz = 16;
+        this.milk = "whole";
+    }
+                  
+    public void brew(="operator from-rainbow">="entity class from-rainbow">String beans) {
+	super.brew(beans);
+        System.out.println("Frothy!!!");
+    }
+                  
+    public void clean(){
+        System.out.println("Cleaning the froth!");
+    }
+}

@@ -1,0 +1,122 @@
+asSubclass
+public <U> Class<? extends U> asSubclass(Class<U> clazz)
+Casts this Class object to represent a subclass of the class represented by the specified class object. Checks that the cast is valid, and throws a ClassCastException if it is not. If this method succeeds, it always returns a reference to this class object.
+This method is useful when a client needs to "narrow" the type of a Class object to pass it to an API that restricts the Class objects that it is willing to accept. A cast would generate a compile-time warning, as the correctness of the cast could not be checked at runtime (because generic types are implemented by erasure).
+
+Type Parameters:
+U - the type to cast this class object to
+Parameters:
+clazz - the class of the type to cast this class object to
+Returns:
+this Class object, cast to represent a subclass of the specified class object.
+Throws:
+ClassCastException - if this Class object does not represent a subclass of the specified class (here "subclass" includes the class itself).
+Since:
+1.5
+
+
+
+cast
+public T cast(Object obj)
+Casts an object to the class or interface represented by this Class object.
+Parameters:
+obj - the object to be cast
+Returns:
+the object after casting, or null if obj is null
+Throws:
+ClassCastException - if the object is not null and is not assignable to the type T.
+Since:
+1.5
+
+
+
+
+isEnum
+public boolean isEnum()
+Returns true if and only if this class was declared as an enum in the source code.
+Returns:
+true if and only if this class was declared as an enum in the source code
+Since:
+1.5
+
+
+
+
+getEnumConstants
+public T[] getEnumConstants()
+Returns the elements of this enum class or null if this Class object does not represent an enum type.
+Returns:
+an array containing the values comprising the enum class represented by this Class object in the order they're declared, or null if this Class object does not represent an enum type
+Since:
+1.5
+
+
+getConstructor / getMethods
+public Constructor<T> getConstructor(Class<?>... parameterTypes)
+                              throws NoSuchMethodException,
+                                     SecurityException
+Returns a Constructor object that reflects the specified public constructor of the class represented by this Class object. The parameterTypes parameter is an array of Class objects that identify the constructor's formal parameter types, in declared order. If this Class object represents an inner class declared in a non-static context, the formal parameter types include the explicit enclosing instance as the first parameter.
+The constructor to reflect is the public constructor of the class represented by this Class object whose formal parameter types match those specified by parameterTypes.
+
+Parameters:
+parameterTypes - the parameter array
+Returns:
+the Constructor object of the public constructor that matches the specified parameterTypes
+Throws:
+NoSuchMethodException - if a matching method is not found.
+SecurityException - If a security manager, s, is present and the caller's class loader is not the same as or an ancestor of the class loader for the current class and invocation of s.checkPackageAccess() denies access to the package of this class.
+Since:
+JDK1.1
+
+
+
+
+isAnonymousClass
+public boolean isAnonymousClass()
+Returns true if and only if the underlying class is an anonymous class.
+Returns:
+true if and only if this class is an anonymous class.
+Since:
+1.5
+
+
+isLocalClass
+public boolean isLocalClass()
+Returns true if and only if the underlying class is a local class.
+Returns:
+true if and only if this class is a local class.
+Since:
+1.5
+
+
+isMemberClass
+public boolean isMemberClass()
+Returns true if and only if the underlying class is a member class.
+Returns:
+true if and only if this class is a member class.
+Since:
+1.5
+
+
+
+getSimpleName
+public String getSimpleName()
+Returns the simple name of the underlying class as given in the source code. Returns an empty string if the underlying class is anonymous.
+The simple name of an array is the simple name of the component type with "[]" appended. In particular the simple name of an array whose component type is anonymous is "[]".
+
+Returns:
+the simple name of the underlying class
+Since:
+1.5
+
+
+
+getTypeName
+public String getTypeName()
+Return an informative string for the name of this type.
+Specified by:
+getTypeName in interface Type
+Returns:
+an informative string for the name of this type
+Since:
+1.8

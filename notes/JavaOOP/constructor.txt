@@ -1,0 +1,25 @@
+A constructor method is a special function that gets called when an instance of an object is created. The differences between a constructor method and the other methods are:
+
+It doesn't have a return type.
+The name of the constructor MUST be the same as the name of the class to which it belongs.
+A constructor is called automatically when a new instance of an object is created.
+
+Constructor Overloading
+One of other uses of the this keyword is when you have overloaded your constructor, but don't want to have to write any repetitive code. Imagine that you have written out a constructor that takes an int, a string, and another int, but you also want there to be an empty constructor with default values. You could implement such a thing as shown:
+
+public class Person {
+    private int age;
+    private int cmHeight;
+    private String name;
+    public Person() {
+        this(20, "John Doe", 171);  //This provides default values to the instance when no parameter when instantiation.
+    }
+    
+    public Person(int age, String name, int cmHeight) {
+        this.age = age;
+        this.name = name;
+        this.cmHeight = cmHeight;
+    }
+    // ...
+
+    

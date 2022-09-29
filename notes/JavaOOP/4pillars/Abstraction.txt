@@ -1,0 +1,18 @@
+Abstraction
+Abstraction is an extension of Encapsulation, and we can hide attributes or methods that a Barista doesn't need to know about
+
+
+class Barista {
+    
+    private String name;
+    private CoffeeMaker coffeeMaker;
+    
+    public Barista(String name) {
+        this.name = name;
+        this.coffeeMaker = new CoffeeMaker(40);
+    }
+    
+    public void makeCoffee() {
+        this.coffeeMaker.brew();
+    }
+}

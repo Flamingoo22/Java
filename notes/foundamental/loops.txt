@@ -1,0 +1,44 @@
+While loop is use when we don't know how many iterations
+
+Enhanced For Loop:
+
+for (String s : name_of_list){
+    //things want to do with each element
+}
+
+for(element container : collection){
+    // body statements
+}
+
+
+
+When to not use the Enhanced For Loop
+There are sometimes when we can't use the enhanced for loop, take the example where we have an ArrayList of snacks and we want to remove any that start with the letter "A".
+
+ArrayList<String> snacks = new ArrayList<String> ();
+snacks.add("Apples");
+snacks.add("Pretzels");
+snacks.add("Almonds");
+snacks.add("Yogurt");
+for(String snack : snacks ) {
+	if(snack.charAt(0) == 'A') {
+		snacks.remove(snack);
+	}
+}
+// this will encounter an error like
+// Exception in thread "main" java.util.ConcurrentModificationExceptioncopy
+If we're modifying the ArrayList that we are looping over, the enhanced for loop may encounter this error. If we write a conventional for loop instead, we can get this to work.
+
+for(int i=0; i<snacks.size(); i++) {
+    if(snacks.get(i).charAt(0) == 'A') {
+        snacks.remove(i);
+    }
+}
+
+Enhanced For loop cannot be use:
+    If you want to swap values in the array, changing the order of the values within the array
+
+
+You must declare the type ArrayList will store as Object
+Any values you add to the list must be object types
+you may not add any primitive types to the list

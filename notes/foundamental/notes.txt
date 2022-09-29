@@ -1,0 +1,33 @@
+Java is a complied, platform independent language
+
+Java's design patterns..
+    Java is object-oriented
+    Java is loosely coupled
+        more flexible in design
+
+Interpreted Languages
+    benefits:
+        More flexible
+        Dynamic Typing
+        Shorter source-code, easier to write
+        platform independent
+    Drawbacks:
+        Shower, less efficient
+
+Complied Languages
+    benefits:
+        faster, more efficient
+        greater control over memory usage & resources
+    Drawbacks:
+        Platform dependent
+        More involved syntax and code considerations for developers
+
+Java is statically typed language
+
+Java is platform independent
+JDK : java development kit
+JRE : java runtime environment
+
+Java code > javac (complier) > bytecode > JVM
+
+wrapper class is an object type or class that has greater functionality than its associated primitive type.

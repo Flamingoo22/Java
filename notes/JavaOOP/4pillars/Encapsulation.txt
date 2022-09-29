@@ -1,0 +1,24 @@
+Encapsulation
+Encapsulation is the idea that we can group code together into objects that will behave in an expected way. Encapsulation in Java involves controlling access to properties or methods with access modifiers and limiting control to the inner scope where necessary. 
+
+
+public class CoffeeMaker {
+    protected int maxVolumeOz;
+    protected String milk;
+    
+    public CoffeeMaker(int maxVolumeOz) {
+        this.maxVolumeOz = maxVolumeOz;
+    }
+                
+    public int getMaxVolumeOz() {
+        return this.maxVolumeOz;
+    
+    public int getMaxServings() {
+        return this.maxVolumeOz / 8;
+    }
+    
+    public void brew(String beans) {
+    	System.out.println("Brewing coffee");
+    }
+}
+

@@ -1,0 +1,4 @@
+9/28
+
+    The only fields that can appear in an interface must be both static and final, that is, constants that cannot change.
+        does it mean the member variable declare in interface cannot be change? sounds not very dynamtic..
