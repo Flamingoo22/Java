@@ -1,0 +1,11 @@
+@RestController
+public class HomeController{
+    @RequestMapping("/")
+    public String index(@RequestParam(value="q", required = false) String searchQuery){
+        if(searchQuery == null){
+            return "YOU SEARCH FOR NOTHING";
+        }else{
+            return "YOU SEARCHED FOR:" +searchQuery;
+        }
+    }
+}
