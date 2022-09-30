@@ -1,0 +1,4 @@
+@RestController annotation: A convenient annotation that allows our controller to respond with data (ie. strings, json)
+
+
+@RequestMapping annotation: Annotation for mapping web requests onto specific handler classes (class level) and/or handler methods (method level).

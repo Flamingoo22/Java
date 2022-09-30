@@ -34,16 +34,16 @@ public class BlackJack {
 	}
 	
 	public boolean isBlackJack() {
-		if(this.dealerPoints()==21) {
-			System.out.println("Dealer has:");
-			this.dealer1.showHand();
-			System.out.println("You lose, Dealer get BlackJack.");
-			return true;
-		}
 		if(this.userPoints() == 21) {
 			System.out.println("You have:");
 			this.user1.showHand();
 			System.out.println("YOU WON! BLACKJACK!");
+			return true;
+		}
+		if(this.dealerPoints()==21) {
+			System.out.println("Dealer has:");
+			this.dealer1.showHand();
+			System.out.println("You lose, Dealer get BlackJack.");
 			return true;
 		}
 		return false;

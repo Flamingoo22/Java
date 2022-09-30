@@ -1,0 +1,6 @@
+JSP
+    java server page
+        views;  transpiled to html
+
+JSTL
+    JSP Standard Tag Library // similar to jinja
