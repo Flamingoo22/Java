@@ -32,8 +32,8 @@
 	</c:choose>
 	
 	<h2>FOR EACH</h2>
-	<c:forEach var="user2" items="${users}">
-		<p><c:out value="${user2}"/></p>
+	<c:forEach var="userDATA" items="${users}">
+		<p><c:out value="${userDATA}"/></p>
 	</c:forEach>
 		
 </body>
