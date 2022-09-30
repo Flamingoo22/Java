@@ -1,0 +1,4 @@
+for path PathVariable
+    How do we set a callback page if user input the different type?
+
+    what is the major usage of RequestParam?

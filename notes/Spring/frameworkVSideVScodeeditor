@@ -1,0 +1,7 @@
+You can plug almost any text file into VSC, and edit it. Via plugins, you can get extra functionality out of it. 
+
+IDE's are built for one code language (usually) and so they're very good at those from the get go. 
+
+Its hard to picture the difference between a text editor and an IDE because we started with VSC. And VSC does sooo much built in and has so many plugins that most say you can basically turn it into an IDE with enough engineering (case in point, the springtool extension for VSC)
+
+A framework is a structure of code. by implementing it, we can get more out of the language than before. With python, we can do things like if statements, for statements, ect.. But by implementing flask, we can make python do more things for us, ie @ app.route('/)

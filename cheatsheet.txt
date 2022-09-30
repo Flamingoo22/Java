@@ -1,0 +1,22 @@
+in pom.xml file
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+
+in src/main/resources/application.properties
+    spring.mvc.view.prefix=/WEB-INF/
+
+in src
+    src/main/webapp
+        create folder WEB-INF
+            create file name.jsp
+              in the jsp file add line:
+                 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+
+
+use <c:out value='{"____"}'/>
