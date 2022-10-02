@@ -46,6 +46,25 @@ concat(addList) {
    * - Space: O(?).
    * @returns {SinglyLinkedList} This list.
    */
+moveMinToFront2(){
+    let flag;
+    let walker = this.head;
+    let runner = walker?.next;
+    let minNode = walker
+    if(!walker) return false;
+    while(runner){
+        if (runner.data < min.data){
+            flag = walker;
+            minNode = runner;
+        }
+        walker = runner;
+        runner = runner.next;
+    }
+    flag.next = minNode.next;
+    minNode.next = this.head;
+    this.head = minNode;
+}
+
 moveMinToFront() {
     let index = -1;
     let runner = this.head;
@@ -92,17 +111,24 @@ moveMinToFront() {
 splitOnVal(val) {
     let prevNode = this.head;
     let runner = prevNode.next;
+    const list2 = new SinglyLinkedList()
+    if(this.isEmpty()) return this;
+
+    if(prevNode.data === val) {
+        list2.head = this.head;
+        this.head = null;
+        return list2;
+    }
+
     if(runner){
         while(runner.data !== val){
             prevNode = runner;
             runner = runner.next;
+            if(!runner) return list2;
         }
-    }else{
-        return false;
     }
-    console.log(prevNode)
+
     prevNode.next = null;
-    const list2 = new SinglyLinkedList()
     list2.head = runner;
     return list2;
 }
