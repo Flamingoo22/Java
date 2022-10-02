@@ -1,0 +1,6 @@
+
+
+
+Date date = Calendar.getInstance().getTime();  
+DateFormat dateFormat = new SimpleDateFormat("MMM-dd-yy HH:mm:ss");  
+String strDate = dateFormat.format(date);  
