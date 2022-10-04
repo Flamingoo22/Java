@@ -44,7 +44,7 @@ public class Gold {
 		int cave = rand.nextInt(21)+10;
 		int house = rand.nextInt(11)+10;
 		int quest = rand.nextInt(201)-100;
-		int spa = rand.nextInt(30)-5;
+		int spa = rand.nextInt(20)+5;
 		spa *= -1;
 		
 

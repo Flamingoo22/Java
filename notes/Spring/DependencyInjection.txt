@@ -1,0 +1,11 @@
+Dependency Injection is a powerful design pattern that inverts the usual control flow of a program (where your class would instantiate the classes that it needs). This process is called "Inversion of Control," or "IoC". Together IoC and DI are a large part of modern Java frameworks.
+
+IoC Container.
+    This process decouples the class construction from the construction of its dependencies, which results in cleaner, more modular, and more maintainable code. It also makes testing, when you get there, much easier.
+
+    https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans
+
+    It is a process whereby objects define their dependencies (that is, the other objects they work with) only through constructor arguments, 
+    arguments to a factory method, or properties that are set on the object instance after it is constructed or returned from a factory method. 
+    The container then injects those dependencies when it creates the bean. 
+    This process is fundamentally the inverse (hence the name, Inversion of Control) of the bean itself controlling the instantiation or location of its dependencies by using direct construction of classes or a mechanism such as the Service Locator pattern.
