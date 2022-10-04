@@ -1,0 +1,55 @@
+https://www.ibm.com/docs/en/db2/9.7?topic=jsri-data-types-that-map-database-data-types-in-java-applications
+
+Data types for calling stored procedures and user-defined functions
+The following table summarizes mappings of Java data types to JDBC data types and DB2 or IBM Informix data types for calling user-defined function and stored procedure parameters. 
+The mappings of Java data types to JDBC data types are for CallableStatement.registerOutParameter methods in JDBC programs. 
+The mappings of Java data types to database server data types are for parameters in stored procedure or user-defined function invocations.
+
+
+
+Java data type	                                    JDBC data type	                        SQL data type
+boolean3, java.lang.                                Boolean	                                BOOLEAN	BOOLEAN1,2
+boolean3, java.lang.Boolean                     	BIT	                                    SMALLINT
+byte3, java.lang.Byte	                            TINYINT	                                SMALLINT
+short, java.lang.Short	                            SMALLINT	                            SMALLINT
+int, java.lang.Integer	                            INTEGER	                                INTEGER
+long, java.lang.Long	                            BIGINT	                                BIGINT7
+float, java.lang.Float	                            REAL	                                REAL
+float, java.lang.Float	                            FLOAT	                                REAL
+double, java.lang.Double	                        DOUBLE	                                DOUBLE
+java.math.BigDecimal	                            NUMERIC	                                DECIMAL
+java.math.BigDecimal	                            DECIMAL	                                DECIMAL
+java.math.BigDecimal	                            java.types.OTHER	                    DECFLOATn4
+java.math.BigDecimal	                            com.ibm.db2.jcc.DB2Types.DECFLOAT	    DECFLOATn4
+java.lang.String	                                CHAR	                                CHAR
+java.lang.String	                                CHAR	                                GRAPHIC
+java.lang.String	                                VARCHAR	                                VARCHAR
+java.lang.String	                                VARCHAR	                                VARGRAPHIC
+java.lang.String	                                LONGVARCHAR	                            VARCHAR
+java.lang.String	                                VARCHAR	                                CLOB
+java.lang.String	                                LONGVARCHAR	                            CLOB
+java.lang.String	                                CLOB	                                CLOB
+byte[]	                                            BINARY	                                CHAR FOR BIT DATA
+byte[]	                                            VARBINARY	                            VARCHAR FOR BIT DATA
+byte[]	                                            BINARY	                                BINARY6
+byte[]	                                            VARBINARY	                            VARBINARY6
+byte[]	                                            LONGVARBINARY	                        ARCHAR FOR BIT DATA
+byte[]	                                            VARBINARY	                            BLOB5
+byte[]	                                            LONGVARBINARY	                        BLOB5
+java.sql.Date	                                    DATE	                                DATE
+java.sql.Time	                                    TIME	                                TIME
+java.sql.Timestamp	                                TIMESTAMP	                            TIMESTAMP, TIMESTAMP(p), TIMESTAMP WITH TIME ZONE, TIMESTAMP(p) WITH TIME ZONE8,9
+java.sql.Blob	                                    BLOB	                                BLOB
+java.sql.Clob	                                    CLOB	                                CLOB
+java.sql.Clob	                                    CLOB	                                DBCLOB
+java.io.ByteArrayInputStream	                    None	                                BLOB
+java.io.StringReader	                            None	                                CLOB
+java.io.ByteArrayInputStream	                    None	                                CLOB
+com.ibm.db2.jcc.DB2RowID (deprecated)	            com.ibm.db2.jcc.DB2Types.ROWID	        ROWID
+java.sql.RowId	                                    java.sql.Types.ROWID	                ROWID
+com.ibm.db2.jcc.DB2Xml (deprecated)	                com.ibm.db2.jcc.DB2Types.XML	        XML AS CLOB
+java.sql.SQLXML	                                    java.sql.Types.SQLXML	                XML
+java.sql.SQLXML	                                    java.sql.Types.SQLXML	                XML AS CLOB
+java.sql.Array	                                    java.sql.Types.ARRAY	                ARRAY2
+java.sql.Struct	                                    java.sql.Types.STRUCT	                ROW1,2
+java.sql.ResultSet	                                com.ibm.db2.jcc.DB2Types.CURSOR	        CURSOR type2

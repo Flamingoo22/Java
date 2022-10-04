@@ -29,3 +29,11 @@ e.g.:<c:set var = "now" value = "<% = new java.util.Date()%>" />
          dateStyle = "short" timeStyle = "short" value = "${now}" /></p>
 
 href: https://www.tutorialspoint.com/jsp/jstl_format_formatdate_tag.htm
+
+
+//FORM:
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+
+//Error:
+<%@ page isErrorPage="true" %>    

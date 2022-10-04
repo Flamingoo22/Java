@@ -1,0 +1,65 @@
+//model
+// NEW
+@Size(min = 3, max = 40, message="Language must be at least 3 characters.")
+private String language;
+// NEW
+@NotNull
+@Min(value=100, message="Must be at least 100 pages.")
+private Integer numberOfPages;
+
+
+
+// controllers
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+// ... other imports removed for brevity
+@Controller
+public class BooksController {
+    // other methods removed for brevity
+    
+    @GetMapping("/books/new")
+    public String newBook(@ModelAttribute("book") Book book) {
+        return "/books/new.jsp";
+    }
+    @PostMapping("/books")
+    public String create(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/books/new.jsp";
+        } else {
+            bookService.createBook(book);
+            return "redirect:/books";
+        }
+    }
+}
+
+
+//jsp
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %>    
+<h1>New Book</h1>
+<form:form action="/books" method="post" modelAttribute="book">
+    <p>
+        <form:label path="title">Title</form:label>
+        <form:errors path="title"/>
+        <form:input path="title"/>
+    </p>
+    <p>
+        <form:label path="description">Description</form:label>
+        <form:errors path="description"/>
+        <form:textarea path="description"/>
+    </p>
+    <p>
+        <form:label path="language">Language</form:label>
+        <form:errors path="language"/>
+        <form:input path="language"/>
+    </p>
+    <p>
+        <form:label path="numberOfPages">Pages</form:label>
+        <form:errors path="numberOfPages"/>     
+        <form:input type="number" path="numberOfPages"/>
+    </p>    
+    <input type="submit" value="Submit"/>
+</form:form>  
