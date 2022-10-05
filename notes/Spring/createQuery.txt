@@ -1,0 +1,2 @@
+	@Query(value = "SELECT * FROM songs ORDER BY rating DESC LIMIT 10", nativeQuery = true) 
+	List<Song> getTopTen();

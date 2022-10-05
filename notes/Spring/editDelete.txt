@@ -1,0 +1,51 @@
+////Edit
+
+// ... imports removed for brevity
+@Controller
+public class BooksController {
+    // other methods removed for brevity
+    @RequestMapping("/books/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        Book book = bookService.findBook(id);
+        model.addAttribute("book", book);
+        return "/books/edit.jsp";
+    }
+    
+    @RequestMapping(value="/books/{id}", method=RequestMethod.PUT)
+    public String update(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/books/edit.jsp";
+        } else {
+            bookService.updateBook(book);
+            return "redirect:/books";
+        }
+    }
+}
+
+
+///Delete
+    //jsp
+    <form action="/books/${book.id}" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete">
+    </form>
+
+
+    
+    //controllers
+        // ... imports removed for brevity
+    @Controller
+    public class BooksController {
+        // other methods removed for brevity
+        @RequestMapping(value="/books/{id}", method=RequestMethod.DELETE)
+        public String destroy(@PathVariable("id") Long id) {
+            bookService.deleteBook(id);
+            return "redirect:/books";
+        }
+    }
+
+    @DeleteMapping("/books/{id}")
+    public String destroy(@PathVariable("id") Long id) {
+        bookService.deleteBook(id);
+        return "redirect:/books";
+    }

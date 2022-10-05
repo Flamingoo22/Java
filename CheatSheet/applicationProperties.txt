@@ -8,5 +8,5 @@ spring.datasource.password=<<dbpassword>>
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=update
 
-
+//methods
 spring.mvc.hiddenmethod.filter.enabled=true
