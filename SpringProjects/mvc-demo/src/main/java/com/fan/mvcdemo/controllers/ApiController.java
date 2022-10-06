@@ -23,21 +23,21 @@ public class ApiController {
 		this.donationServ = donationServ;
 	}
 	
-	@GetMapping("/donations")
-	public List<Donation> findAllDonations(){
-		return this.donationServ.findAll();
-	}
-	
-	@PostMapping("/donations")
-	public Donation createDonation(
-			@RequestParam("donationName")String donationName,
-			@RequestParam("donor")String donor,
-			@RequestParam("quantity")Integer quantity
-			) {
-		Donation donation = new Donation(donationName, donor, quantity);
-		return this.donationServ.create(donation);
-		
-	}
+//	@GetMapping("/donations")
+//	public List<Donation> findAllDonations(){
+//		return this.donationServ.findAll();
+//	}
+//	
+//	@PostMapping("/donations")
+//	public Donation createDonation(
+//			@RequestParam("donationName")String donationName,
+//			@RequestParam("donor")String donor,
+//			@RequestParam("quantity")Integer quantity
+//			) {
+//		Donation donation = new Donation(donationName, donor, quantity);
+//		return this.donationServ.create(donation);
+//		
+//	}
 	
 	@GetMapping("/donations/{id}")
 	public Donation findOne(
@@ -59,19 +59,19 @@ public class ApiController {
 //		return this.donationServ.findOneOp(id);
 //	}
 	//-----------Edit-------------
-	@PutMapping("/donations/{id}")
-	public Donation editOneDonation(
-			@PathVariable("id")Long id,
-			@RequestParam("donationName")String donationName,
-			@RequestParam("donor")String donor,
-			@RequestParam("quantity")Integer quantity
-			) {
-		Donation donation = this.findOne(id);
-		donation.setDonationName(donationName);
-		donation.setDonor(donor);
-		donation.setQuantity(quantity);
-		
-		return this.donationServ.create(donation);
-	}
+//	@PutMapping("/donations/{id}")
+//	public Donation editOneDonation(
+//			@PathVariable("id")Long id,
+//			@RequestParam("donationName")String donationName,
+//			@RequestParam("donor")String donor,
+//			@RequestParam("quantity")Integer quantity
+//			) {
+//		Donation donation = this.findOne(id);
+//		donation.setDonationName(donationName);
+//		donation.setDonor(donor);
+//		donation.setQuantity(quantity);
+//		
+//		return this.donationServ.create(donation);
+//	}
 
 }

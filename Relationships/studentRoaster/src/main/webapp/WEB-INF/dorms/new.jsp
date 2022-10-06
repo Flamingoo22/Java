@@ -12,26 +12,16 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 </head>
 <body>
-	<div class="container">
-		<h1><c:out value="${dojo.name}"/> Location Ninjas</h1>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Age</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="ninja" items="${dojo.ninjas}">
-				<tr>
-					<td><c:out value="${ninja.firstName}"/></td>
-					<td><c:out value="${ninja.lastName}"/></td>
-					<td><c:out value="${ninja.age}"/></td>
-				</tr>
-				</c:forEach>
-			</tbody>
-         </table>
+	<div class="container">	
+	<h1 class="text-center">New Dorm</h1>
+	<a href="/dorms">Dashboard</a>
+	<form:form action="/dorms/new" method="post" modelAttribute="dorm" class="form-container card border border-dark p-3">
+	<div class="row m-3">	
+	<form:label path="name" class="col">Name:</form:label>
+	<form:input path="name" class="col form-control"/>
+	</div>
+	<input type="submit" value="Add" class='btn form-control border shadow'/>
+	</form:form>
 	</div>
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>

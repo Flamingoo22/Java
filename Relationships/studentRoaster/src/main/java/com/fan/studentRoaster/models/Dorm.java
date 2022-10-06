@@ -1,46 +1,34 @@
-package com.fan.mvcdemo.models;
+package com.fan.studentRoaster.models;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity  //declares that it is going to be part of mysql
-@Table(name="donation") //gives the table name of the model
-public class Donation {
-	
+@Entity
+@Table(name="dorm")
+public class Dorm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Size(min=3, max=255)
-    @NotNull(message="donationName is required!")
-    private String donationName;
-    
-    @Min(0)
-    @Max(1000)
+
     @NotNull
-    private Integer quantity;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="donor_id")
-    private User donor;
+    @Size(min = 5, max = 200)
+    private String name;
     
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -48,99 +36,66 @@ public class Donation {
     
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
+	
+    @OneToMany(mappedBy="dorm", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Student> students;
     
-	public Donation() {
-		// TODO Auto-generated constructor stub
+	public Dorm() {
 	}
 	
-	
-	
-	public Donation(String donationName, User donor, Integer quantity) {
-		this.donationName = donationName;
-		this.donor = donor;
-		this.quantity = quantity;
+	public List<Student> getStudents() {
+		return students;
 	}
 
-	
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
+	public Dorm(String name) {
+		this.name = name;
+	}
 
 	public Long getId() {
 		return id;
 	}
 
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-
-	public String getDonationName() {
-		return donationName;
+	public String getName() {
+		return name;
 	}
 
-
-
-	public void setDonationName(String donationName) {
-		this.donationName = donationName;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-
-
-	public User getDonor() {
-		return donor;
-	}
-
-
-
-	public void setDonor(User donor) {
-		this.donor = donor;
-	}
-
-
-
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
-
 
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-
-
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
-
 
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-
-
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
-
-
-	@PrePersist
+	
+    @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
     }
+    
     @PreUpdate
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
+	
+
 }
