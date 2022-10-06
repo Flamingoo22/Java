@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="navbar">
 			<a href="/songs/new">Add New</a>
-			<a href="/search/topTen/a">Top Ten</a>
+			<a href="/search/topTen">Top Ten</a>
 			<form action="/search" method="post">
 				<input type="search" name="author"/>
 				<input type="submit" value="Search Artist"/>

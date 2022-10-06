@@ -99,7 +99,7 @@ public class HomeController {
 		return "songs/oneSong.jsp";
 	}
 	
-	@GetMapping("/search/topTen/a")
+	@GetMapping("/search/topTen")
 	public String topTen(Model model) {
 		model.addAttribute("topTen", this.songServ.topTen());
 		return "search/topTen.jsp";

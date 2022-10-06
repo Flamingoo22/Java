@@ -1,27 +1,3 @@
-How do we generate our own query?
-@Repository
-class PassengerRepositoryImpl {
+    how do i format the date
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    @Override
-    public List<Passenger> findOrderedBySeatNumberLimitedTo(int limit) {
-        return entityManager.createQuery("SELECT p FROM Passenger p ORDER BY p.seatNumber",
-          Passenger.class).setMaxResults(limit).getResultList();
-    }
-}
-
-entityManager error message:
-    Illegal modifier for the interface field SongRepo.entityManager; only public, static & final are permitted
-
-Pageable??
-    Page<Passenger> page = repository.findAll(
-    PageRequest.of(0, 1, Sort.by(Sort.Direction.ASC, "seatNumber")));
-        https://www.baeldung.com/jpa-limit-query-results
-
-How can I shorten my search method.
-
-How can I overload the /search/{string} ???
-e.g. @GetMapping("/search/topTen")
-	 @GetMapping("/search/{author}")
+    
