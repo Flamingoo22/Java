@@ -1,0 +1,20 @@
+Cross-Site Request Forgery (CSRF)
+
+Notice that in our loginPage.jsp, we have a hidden input with a value of csrf.token. 
+One feature of Spring Security is the easy implementation of CSRF prevention. 
+When we include a token in our HTML forms, a random matching token is stored in the server as well. 
+Whenever a request is made to your application, Spring will check the received token with the token in the server. 
+If they don't match, the request is not processed. 
+This prevents clients from submitting information to a Spring application without properly using the forms from the app itself.
+
+But where is the token for our registrationPage.jsp? 
+Since in this view we are using jstl form tags, it will automatically add the token for us. We only need to explicitly add csrf tokens on custom forms that don't use jstl's form tags. If you would like to read more on CSRF, we have included two links at the bottom.
+
+
+https://owasp.org/www-community/attacks/csrf
+
+Overview
+Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. 
+With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing. 
+If the victim is a normal user, a successful CSRF attack can force the user to perform state changing requests like transferring funds, changing their email address, and so forth. 
+If the victim is an administrative account, CSRF can compromise the entire web application.

@@ -1,0 +1,50 @@
+package com.codingdojo.auth.controllers;
+// imports removed for brevity
+@Controller
+public class Users {
+    
+    @RequestMapping("/registration")
+    public String registerForm(@Valid @ModelAttribute("user") User user) {
+        return "registrationPage.jsp";
+    }
+    
+    @RequestMapping("/login")
+    public String login() {
+        return "loginPage.jsp";
+    }
+
+
+}
+
+
+
+
+//updated
+@Controller
+public class Users {
+    private UserService userService;
+    
+    public Users(UserService userService) {
+        this.userService = userService;
+    }
+    
+    @RequestMapping("/registration")
+    public String registerForm(@Valid @ModelAttribute("user") User user) {
+        return "registrationPage.jsp";
+    }
+    
+    @PostMapping("/registration")
+    public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model, HttpSession session) {
+        if (result.hasErrors()) {
+            return "registrationPage.jsp";
+        }
+        userService.saveWithUserRole(user);
+        return "redirect:/login";
+    }
+    
+    
+    @RequestMapping("/login")
+    public String login() {
+        return "loginPage.jsp";
+    }
+}

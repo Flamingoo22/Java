@@ -72,3 +72,25 @@ There are a few other options that you can have. We encourage you to visit the u
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="dojo_id")
     private Dojo dojo;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "categories_products", 
+        joinColumns = @JoinColumn(name = "category_id"), 
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private List<Product> products;
+
+    Save the category object.
+    
+    // retrieve an instance of a category using another method in the service.
+        Category thisCategory = findCategoryById(categoryId);
+    
+    // retrieve an instance of a product using another method in the service.
+        Product thisProduct = findProductById(productId);
+    
+    // add the product to this category's list of products
+        thisCategory.getProducts().add(thisProduct);
+    
+    // Save thisCategory, since you made changes to its product list.
+        categoryRepository.save(thisCategory);	

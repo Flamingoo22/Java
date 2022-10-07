@@ -1,0 +1,26 @@
+
+
+src/main/java/com/codingdojo/auth/models/UserRepository.java
+//User Repo
+@Repository
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findByUsername(String username);
+}
+
+
+
+
+src/main/java/com/codingdojo/auth/models/RoleRepository.java
+//Role Repo
+@Repository
+public interface RoleRepository extends CrudRepository<Role, Long> {
+}
+
+
+src/main/java/com/codingdojo/auth/repositories/RoleRepository.java
+@Repository
+public interface RoleRepository extends CrudRepository {
+    List<Role> findAll();
+    
+    List<Role> findByName(String name);
+}

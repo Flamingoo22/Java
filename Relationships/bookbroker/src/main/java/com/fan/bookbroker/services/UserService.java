@@ -1,4 +1,4 @@
-package com.fan.loginregister.services;
+package com.fan.bookbroker.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
-import com.fan.loginregister.models.LoginUser;
-import com.fan.loginregister.models.User;
-import com.fan.loginregister.repositories.UserRepository;
+import com.fan.bookbroker.models.LoginUser;
+import com.fan.bookbroker.models.User;
+import com.fan.bookbroker.repositories.UserRepository;
 
 @Service
 public class UserService {
@@ -32,15 +32,12 @@ public class UserService {
 	public List<User> findAll(){
 		return this.userRepo.findAll();
 	}
-
+	
 	public User create(User user) {
 		return this.userRepo.save(user);
 	}
-
+	
 	public User register(User newUser, BindingResult result) {
-		if(result.hasErrors()) {
-			return null;
-		}
         // TO-DO: Additional validations!
 		if(this.findUserByEmail(newUser.getEmail())!= null) {
 			result.rejectValue("email", "Matches", "Email already taken.");
@@ -55,9 +52,6 @@ public class UserService {
         return newUser;
     }
     public User login(LoginUser newLoginObject, BindingResult result) {
-    	if(result.hasErrors()) {
-    		return null;
-    	}
         // TO-DO: Additional validations!
     	Optional<User> potentialUser = userRepo.findByEmail(newLoginObject.getEmail());
     	if(this.findUserByEmail(newLoginObject.getEmail()) == null) {
