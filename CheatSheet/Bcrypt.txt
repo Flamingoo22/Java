@@ -1,0 +1,9 @@
+BCrypt
+
+
+To create a hash of the user's password to store in the database:
+    String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());copy
+To check if a user's password is correct:
+    if(!BCrypt.checkpw(newLogin.getPassword(), user.getPassword())) {
+        result.rejectValue("password", "Matches", "Invalid Password!");
+    }
