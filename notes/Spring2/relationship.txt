@@ -73,7 +73,7 @@ There are a few other options that you can have. We encourage you to visit the u
     @JoinColumn(name="dojo_id")
     private Dojo dojo;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinTable(
         name = "categories_products", 
         joinColumns = @JoinColumn(name = "category_id"), 
